@@ -119,6 +119,7 @@ pallet-nfts = { path = "../pallets/nfts", default-features = false }
 committee = { path = "../pallets/committee", default-features = false }
 council-reward = { path = "../pallets/council-reward", default-features = false }
 dbc-price-ocw = { path = "../pallets/dbc-price-ocw", default-features = false }
+dlc-price-ocw = { path = "../pallets/dlc-price-ocw", default-features = false }
 dbc-support = { path = "../pallets/support", default-features = false }
 generic-func = { path = "../pallets/generic-func", default-features = false }
 maintain-committee = { path = "../pallets/maintain-committee", default-features = false }
@@ -137,6 +138,8 @@ simple-rpc-runtime-api = { path = "../pallets/simple-rpc/rpc/runtime-api", defau
 terminating-rental-runtime-api = { path = "../pallets/terminating-rental/rpc/runtime-api", default-features = false }
 
 [features]
+default = ["std"]
+with-tracing = ["frame-executive/with-tracing"]
 std = [
   # "pallet-whitelist/std",
   "pallet-offences-benchmarking?/std",
@@ -183,7 +186,7 @@ std = [
   "pallet-preimage/std",
   "pallet-proxy/std",
   "sp-core/std",
-  "pallet-insecure-randomness-collective-flip/std",
+  # "pallet-randomness-collective-flip/std",
   "sp-std/std",
   "pallet-session/std",
   "pallet-session-benchmarking?/std",
@@ -191,7 +194,6 @@ std = [
   "sp-runtime/std",
   "sp-staking/std",
   "pallet-staking/std",
-  "pallet-staking-runtime-api/std",
   "pallet-state-trie-migration/std",
   "sp-session/std",
   "pallet-sudo/std",
@@ -225,6 +227,7 @@ std = [
   "committee/std",
   "council-reward/std",
   "dbc-price-ocw/std",
+  "dlc-price-ocw/std",
   "dbc-support/std",
   "generic-func/std",
   "maintain-committee/std",
@@ -242,9 +245,6 @@ std = [
   "simple-rpc-runtime-api/std",
   "terminating-rental-runtime-api/std",
 ]
-
-default = ["std"]
-with-tracing = ["frame-executive/with-tracing"]
 runtime-benchmarks = [
   "frame-benchmarking/runtime-benchmarks",
   "frame-support/runtime-benchmarks",

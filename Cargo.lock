@@ -1842,6 +1842,7 @@ dependencies = [
  "dbc-primitives",
  "dbc-staking",
  "dbc-support",
+ "dlc-price-ocw",
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-executive",
@@ -2210,6 +2211,25 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.48",
+]
+
+[[package]]
+name = "dlc-price-ocw"
+version = "0.1.0"
+dependencies = [
+ "dbc-support",
+ "frame-support 4.0.0-dev (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
+ "frame-system 4.0.0-dev (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
+ "generic-func",
+ "lite-json",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "serde_json",
+ "sp-core 7.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
+ "sp-io 7.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
+ "sp-runtime 7.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
+ "sp-std 5.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37)",
 ]
 
 [[package]]

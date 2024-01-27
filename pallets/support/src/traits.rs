@@ -112,6 +112,12 @@ pub trait DbcPrice {
     fn get_dbc_amount_by_value(value: u64) -> Option<Self::Balance>;
 }
 
+pub trait DlcPrice {
+    type Balance;
+
+    fn get_dlc_amount_by_value(value: u64) -> Option<Self::Balance>;
+}
+
 pub trait MTOps {
     type AccountId;
     type MachineId;
