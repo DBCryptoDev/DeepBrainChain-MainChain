@@ -127,6 +127,7 @@ online-profile = { path = "../pallets/online-profile", default-features = false 
 rent-machine = { path = "../pallets/rent-machine", default-features = false }
 simple-rpc = { package = "simple-rpc", path = "../pallets/simple-rpc", default-features = false }
 terminating-rental = { path = "../pallets/terminating-rental", default-features = false }
+transient-rental = { path = "../pallets/transient-rental", default-features = false }
 
 committee-runtime-api = { path = "../pallets/committee/rpc/runtime-api", default-features = false }
 online-committee-runtime-api = { path = "../pallets/online-committee/rpc/runtime-api", default-features = false }
@@ -136,8 +137,6 @@ simple-rpc-runtime-api = { path = "../pallets/simple-rpc/rpc/runtime-api", defau
 terminating-rental-runtime-api = { path = "../pallets/terminating-rental/rpc/runtime-api", default-features = false }
 
 [features]
-default = ["std"]
-with-tracing = ["frame-executive/with-tracing"]
 std = [
   # "pallet-whitelist/std",
   "pallet-offences-benchmarking?/std",
@@ -234,6 +233,7 @@ std = [
   "rent-machine/std",
   "simple-rpc/std",
   "terminating-rental/std",
+  "transient-rental/std",
 
   "committee-runtime-api/std",
   "online-committee-runtime-api/std",
@@ -242,6 +242,9 @@ std = [
   "simple-rpc-runtime-api/std",
   "terminating-rental-runtime-api/std",
 ]
+
+default = ["std"]
+with-tracing = ["frame-executive/with-tracing"]
 runtime-benchmarks = [
   "frame-benchmarking/runtime-benchmarks",
   "frame-support/runtime-benchmarks",

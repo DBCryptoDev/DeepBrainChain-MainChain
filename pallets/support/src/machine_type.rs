@@ -53,7 +53,7 @@ pub struct CommitteeUploadInfo {
     pub cpu_type: Vec<u8>, // CPU型号
     pub cpu_core_num: u32, // CPU内核数
     pub cpu_rate: u64,   // CPU频率
-    pub mem_num: u64,    // 内存数
+    pub mem_num: u64,    // 内存大小
 
     #[cfg_attr(feature = "std", serde(with = "serde_text"))]
     pub rand_str: Vec<u8>,

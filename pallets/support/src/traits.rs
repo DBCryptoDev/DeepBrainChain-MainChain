@@ -142,3 +142,17 @@ pub trait GNOps {
         reward_who: Vec<Self::AccountId>,
     ) -> Result<(), ()>;
 }
+
+pub trait DLC {
+    type AssetId;
+    type AccountId;
+    type DLCBalance;
+    fn get_asset_balance(asset_id: Self::AssetId, who: &Self::AccountId) -> Self::DLCBalance;
+
+    fn do_transfer(
+        asset_id: Self::AssetId,
+        from: &Self::AccountId,
+        to: &Self::AccountId,
+        amount: Self::DLCBalance,
+    ) -> Result<Self::DLCBalance, frame_support::dispatch::DispatchError>;
+}

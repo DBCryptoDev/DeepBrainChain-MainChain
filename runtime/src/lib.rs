@@ -26,7 +26,7 @@
 use codec::{Decode, Encode, MaxEncodedLen};
 pub use dbc_primitives::{AccountId, Signature};
 use dbc_primitives::{AccountIndex, Balance, BlockNumber, Hash, Index, Moment};
-use dbc_support::{rental_type::MachineGPUOrder, EraIndex, MachineId, RentOrderId};
+use dbc_support::{rental_type::MachineGPUOrder, traits::DLC, EraIndex, MachineId, RentOrderId};
 use frame_election_provider_support::{
     onchain, BalancingConfig, ElectionDataProvider, SequentialPhragmen, VoteWeight,
 };
@@ -1505,6 +1505,18 @@ impl terminating_rental::Config for Runtime {
     type SlashAndReward = GenericFunc;
 }
 
+parameter_types! {
+    pub const TransientRentPalletId: PalletId = PalletId(*b"Transi/t");
+}
+
+impl transient_rental::Config for Runtime {
+    type PalletId = TransientRentPalletId;
+    type RuntimeEvent = RuntimeEvent;
+    type Currency = Balances;
+    type Slash = Treasury;
+    type Dlc = Assets;
+}
+
 impl simple_rpc::Config for Runtime {
     type Currency = Balances;
     type OPRpcQuery = OnlineProfile;
@@ -1581,6 +1593,7 @@ construct_runtime!(
         RentMachine: rent_machine,
         MaintainCommittee: maintain_committee,
         TerminatingRental: terminating_rental,
+        TransientRental: transient_rental,
     }
 );
 

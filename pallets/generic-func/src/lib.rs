@@ -260,7 +260,7 @@ impl<T: Config> Pallet<T> {
 
         T::Currency::make_free_balance_be(&who, free_balance.saturating_sub(burn_amount));
         // ensure T::CurrencyToVote will work correctly.
-        T::Currency::burn(burn_amount);
+        let imbalance = T::Currency::burn(burn_amount);
 
         // 记录总burn数量
         TotalDestroy::<T>::mutate(&who, |total_destroy| {
